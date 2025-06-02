@@ -1,11 +1,19 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import KniffelGame from "@/components/KniffelGame";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-bold text-gray-800 mb-4">
+            🎲 Kniffel
+          </h1>
+          <p className="text-xl text-gray-600">
+            Roll the dice and score big!
+          </p>
+        </div>
+        <KniffelGame />
       </div>
     </div>
   );
