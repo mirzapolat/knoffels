@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -161,7 +162,7 @@ const KniffelGame = () => {
             ))}
           </div>
           
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-4 mt-8">
             <Button
               onClick={rollDice}
               disabled={rollsLeft === 0 || isGameComplete || isRolling}
