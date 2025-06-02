@@ -33,7 +33,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
     { key: 'fullHouse', label: 'Full House', description: '25 points (3+2 same)' },
     { key: 'smallStraight', label: 'Small Straight', description: '30 points (4 consecutive)' },
     { key: 'largeStraight', label: 'Large Straight', description: '40 points (5 consecutive)' },
-    { key: 'kniffel', label: 'Kniffel', description: '50 points (5 same)' },
+    { key: 'kniffel', label: 'Knoffels', description: '50 points (5 same)' },
     { key: 'chance', label: 'Chance', description: 'Sum of all dice' },
   ];
 
@@ -43,6 +43,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
   }, 0);
 
   const bonus = upperSectionTotal >= 63 ? 35 : 0;
+  const pointsNeeded = Math.max(0, 63 - upperSectionTotal);
 
   const ScoreRow = ({ category }: { category: any }) => {
     const isScored = scores[category.key] !== undefined;
@@ -91,11 +92,23 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
             <div className="grid grid-cols-2 gap-4 text-lg font-bold">
               <div>Subtotal:</div>
               <div className="text-right">{upperSectionTotal}</div>
-              <div>Bonus (if ≥63):</div>
+              <div className="flex items-center gap-2">
+                Bonus (if ≥63):
+                <span className="text-sm font-normal text-blue-600">
+                  {pointsNeeded > 0 ? `Need ${pointsNeeded} more` : '✓ Achieved!'}
+                </span>
+              </div>
               <div className="text-right text-green-600">{bonus}</div>
               <div className="border-t border-gray-300 pt-2">Total:</div>
               <div className="text-right border-t border-gray-300 pt-2">{upperSectionTotal + bonus}</div>
             </div>
+            {pointsNeeded > 0 && (
+              <div className="mt-2 p-2 bg-blue-50 rounded-lg">
+                <div className="text-sm text-blue-700 text-center">
+                  💡 <strong>Bonus Hint:</strong> Get 35 bonus points by scoring at least 63 points in the upper section!
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </Card>

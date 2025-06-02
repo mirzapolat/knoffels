@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -29,18 +28,25 @@ const KniffelGame = () => {
   const [scores, setScores] = useState<Score>({});
   const [totalScore, setTotalScore] = useState(0);
   const [isGameComplete, setIsGameComplete] = useState(false);
+  const [isRolling, setIsRolling] = useState(false);
   const { toast } = useToast();
 
   const rollDice = useCallback(() => {
-    if (rollsLeft > 0) {
-      setDice(prevDice => 
-        prevDice.map(die => 
-          die.locked ? die : { ...die, value: Math.floor(Math.random() * 6) + 1 }
-        )
-      );
-      setRollsLeft(prev => prev - 1);
+    if (rollsLeft > 0 && !isRolling) {
+      setIsRolling(true);
+      
+      // Simulate rolling animation duration
+      setTimeout(() => {
+        setDice(prevDice => 
+          prevDice.map(die => 
+            die.locked ? die : { ...die, value: Math.floor(Math.random() * 6) + 1 }
+          )
+        );
+        setRollsLeft(prev => prev - 1);
+        setIsRolling(false);
+      }, 600);
     }
-  }, [rollsLeft]);
+  }, [rollsLeft, isRolling]);
 
   const toggleDiceLock = useCallback((index: number) => {
     if (rollsLeft < 3) {
@@ -129,6 +135,7 @@ const KniffelGame = () => {
     setScores({});
     setTotalScore(0);
     setIsGameComplete(false);
+    setIsRolling(false);
   }, []);
 
   return (
@@ -149,6 +156,7 @@ const KniffelGame = () => {
                 locked={die.locked}
                 onClick={() => toggleDiceLock(index)}
                 disabled={rollsLeft === 3}
+                isRolling={isRolling && !die.locked}
               />
             ))}
           </div>
@@ -156,11 +164,11 @@ const KniffelGame = () => {
           <div className="flex justify-center gap-4">
             <Button
               onClick={rollDice}
-              disabled={rollsLeft === 0 || isGameComplete}
+              disabled={rollsLeft === 0 || isGameComplete || isRolling}
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105"
             >
-              {rollsLeft === 3 ? 'Start Rolling!' : `Roll Dice (${rollsLeft} left)`}
+              {isRolling ? 'Rolling...' : rollsLeft === 3 ? 'Start Rolling!' : `Roll Dice (${rollsLeft} left)`}
             </Button>
             
             <Button
