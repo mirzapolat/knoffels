@@ -1,5 +1,3 @@
-
-
 import React, { useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -96,6 +94,18 @@ const KniffelGame = () => {
     }
   }, []);
 
+  // Calculate upper section total and bonus
+  const upperSectionCategories = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes'];
+  const upperSectionTotal = upperSectionCategories.reduce((sum, cat) => {
+    const score = scores[cat];
+    return sum + (score || 0);
+  }, 0);
+  const bonus = upperSectionTotal >= 63 ? 35 : 0;
+
+  // Calculate total score including bonus
+  const allCategoriesTotal = Object.values(scores).reduce((sum, score) => sum + (score || 0), 0);
+  const actualTotalScore = allCategoriesTotal + bonus;
+
   const scoreCategory = useCallback((category: string) => {
     if (scores[category] !== undefined || rollsLeft === 3) return;
     
@@ -103,7 +113,6 @@ const KniffelGame = () => {
     const score = calculateScore(category, diceValues);
     
     setScores(prev => ({ ...prev, [category]: score }));
-    setTotalScore(prev => prev + score);
     
     // Reset for next turn
     setDice(dice.map(() => ({ value: 1, locked: false })));
@@ -118,12 +127,20 @@ const KniffelGame = () => {
     
     if (Object.keys({ ...scores, [category]: score }).length === categories.length) {
       setIsGameComplete(true);
+      // Calculate final total including bonus
+      const newUpperSectionTotal = upperSectionCategories.reduce((sum, cat) => {
+        const catScore = cat === category ? score : scores[cat];
+        return sum + (catScore || 0);
+      }, 0);
+      const finalBonus = newUpperSectionTotal >= 63 ? 35 : 0;
+      const finalTotal = Object.values({ ...scores, [category]: score }).reduce((sum, s) => sum + (s || 0), 0) + finalBonus;
+      
       toast({
         title: "Game Complete!",
-        description: `Final Score: ${totalScore + score}`,
+        description: `Final Score: ${finalTotal}`,
       });
     }
-  }, [dice, scores, rollsLeft, calculateScore, totalScore, toast]);
+  }, [dice, scores, rollsLeft, calculateScore, upperSectionCategories, toast]);
 
   const newGame = useCallback(() => {
     setDice([
@@ -144,7 +161,7 @@ const KniffelGame = () => {
     <div className="max-w-6xl mx-auto space-y-6">
       <GameStats 
         rollsLeft={rollsLeft} 
-        totalScore={totalScore} 
+        totalScore={actualTotalScore} 
         isGameComplete={isGameComplete}
       />
       
@@ -197,4 +214,3 @@ const KniffelGame = () => {
 };
 
 export default KniffelGame;
-
