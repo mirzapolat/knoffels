@@ -1,4 +1,5 @@
 
+
 import React, { useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -149,7 +150,7 @@ const KniffelGame = () => {
       
       <Card className="p-6 bg-white/80 backdrop-blur-sm border-2 border-blue-200">
         <div className="space-y-6">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             {dice.map((die, index) => (
               <Dice
                 key={index}
@@ -162,7 +163,7 @@ const KniffelGame = () => {
             ))}
           </div>
           
-          <div className="flex justify-center gap-4 mt-8">
+          <div className="flex justify-center gap-6 mt-8">
             <Button
               onClick={rollDice}
               disabled={rollsLeft === 0 || isGameComplete || isRolling}
@@ -196,3 +197,4 @@ const KniffelGame = () => {
 };
 
 export default KniffelGame;
+
