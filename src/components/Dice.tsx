@@ -71,7 +71,7 @@ const Dice: React.FC<DiceProps> = ({ value, locked, onClick, disabled, isRolling
       )}
       
       {!disabled && (
-        <div className="absolute bottom-0 left-0 right-0 text-xs text-center text-gray-600 bg-white/90 rounded-b-xl py-1 font-medium">
+        <div className="absolute -bottom-6 left-0 right-0 text-xs text-center text-gray-600 bg-white/95 rounded-md py-1 px-2 font-medium shadow-sm border border-gray-200">
           {locked ? 'Locked' : 'Click to lock'}
         </div>
       )}
