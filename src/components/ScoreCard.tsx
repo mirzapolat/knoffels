@@ -134,7 +134,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
       </div>
 
       <Card className="p-4 md:p-6 bg-gradient-to-r from-amber-700 to-orange-700 border-2 border-amber-500 shadow-xl">
-        <h3 className="text-xl md:text-2xl font-bold mb-4 text-center text-amber-50 border-b-2 border-amber-400/40 pb-3">Final Score</h3>
+        <h3 className="text-xl md:text-2xl font-bold mb-4 text-center text-amber-50 border-b-2 border-amber-400/40 pb-3">Total Score</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-amber-50">
           <div className="text-center p-3 bg-amber-800/30 rounded-lg">
             <div className="text-sm opacity-90">Upper Section + Bonus</div>
