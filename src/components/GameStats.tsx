@@ -10,7 +10,7 @@ interface GameStatsProps {
 
 const GameStats: React.FC<GameStatsProps> = ({ rollsLeft, totalScore, isGameComplete }) => {
   return (
-    <Card className="p-4 bg-gradient-to-r from-blue-500 to-green-500 text-white border-0">
+    <Card className="p-4 bg-gradient-to-r from-amber-600 to-orange-600 text-amber-50 border-0 shadow-lg">
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-6">
           <div className="text-center">

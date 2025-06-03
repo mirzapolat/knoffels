@@ -167,7 +167,7 @@ const KniffelGame = () => {
         isGameComplete={isGameComplete}
       />
       
-      <Card className="p-6 bg-white/80 backdrop-blur-sm border-2 border-blue-200">
+      <Card className="p-6 bg-amber-50/90 backdrop-blur-sm border-2 border-amber-300 shadow-lg">
         <div className="space-y-6">
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {dice.map((die, index) => (
@@ -187,7 +187,7 @@ const KniffelGame = () => {
               onClick={rollDice}
               disabled={rollsLeft === 0 || isGameComplete || isRolling}
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105"
+              className="bg-amber-700 hover:bg-amber-800 text-amber-50 font-bold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
             >
               {isRolling ? 'Rolling...' : rollsLeft === 3 ? 'Start Rolling!' : `Roll Dice (${rollsLeft} left)`}
             </Button>
@@ -196,7 +196,7 @@ const KniffelGame = () => {
               onClick={newGame}
               variant="outline"
               size="lg"
-              className="border-2 border-green-500 text-green-600 hover:bg-green-50 font-bold px-8 py-3 rounded-lg transition-all duration-200"
+              className="border-2 border-amber-600 text-amber-700 hover:bg-amber-100 font-bold px-8 py-3 rounded-lg transition-all duration-200 shadow-lg"
             >
               New Game
             </Button>

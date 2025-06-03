@@ -53,12 +53,12 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
     return (
       <div className={`
         grid grid-cols-4 gap-4 p-3 rounded-lg transition-all duration-200
-        ${isScored ? 'bg-green-50 border border-green-200' : 'bg-gray-50 hover:bg-blue-50'}
-        ${canScoreThis ? 'border-2 border-blue-300 cursor-pointer' : ''}
+        ${isScored ? 'bg-orange-100 border border-orange-300' : 'bg-amber-50 hover:bg-orange-50'}
+        ${canScoreThis ? 'border-2 border-amber-400 cursor-pointer' : ''}
       `}>
-        <div className="font-semibold text-gray-800">{category.label}</div>
-        <div className="text-sm text-gray-600">{category.description}</div>
-        <div className="text-center font-bold text-lg">
+        <div className="font-semibold text-amber-900">{category.label}</div>
+        <div className="text-sm text-amber-700">{category.description}</div>
+        <div className="text-center font-bold text-lg text-amber-800">
           {isScored ? scores[category.key] : (canScore ? currentScore : '-')}
         </div>
         <div className="flex justify-center">
@@ -66,13 +66,13 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
             <Button
               onClick={() => onScoreCategory(category.key)}
               size="sm"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded transition-all duration-200"
+              className="bg-amber-600 hover:bg-amber-700 text-amber-50 px-4 py-1 rounded transition-all duration-200 shadow"
             >
               Score {currentScore}
             </Button>
           )}
           {isScored && (
-            <span className="text-green-600 font-bold">✓ Scored</span>
+            <span className="text-orange-600 font-bold">✓ Scored</span>
           )}
         </div>
       </div>
@@ -81,30 +81,30 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
 
   return (
     <div className="grid md:grid-cols-2 gap-6">
-      <Card className="p-6 bg-white/90 backdrop-blur-sm border-2 border-blue-200">
-        <h3 className="text-xl font-bold mb-4 text-center text-gray-800">Upper Section</h3>
+      <Card className="p-6 bg-amber-50/90 backdrop-blur-sm border-2 border-amber-300 shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-center text-amber-900">Upper Section</h3>
         <div className="space-y-2">
           {categories.map(category => (
             <ScoreRow key={category.key} category={category} />
           ))}
           
-          <div className="border-t-2 border-gray-300 pt-3 mt-4">
-            <div className="grid grid-cols-2 gap-4 text-lg font-bold">
+          <div className="border-t-2 border-amber-400 pt-3 mt-4">
+            <div className="grid grid-cols-2 gap-4 text-lg font-bold text-amber-900">
               <div>Subtotal:</div>
               <div className="text-right">{upperSectionTotal}</div>
               <div className="flex items-center gap-2">
                 Bonus (if ≥63):
-                <span className="text-sm font-normal text-blue-600">
+                <span className="text-sm font-normal text-amber-700">
                   {pointsNeeded > 0 ? `Need ${pointsNeeded} more` : '✓ Achieved!'}
                 </span>
               </div>
-              <div className="text-right text-green-600">{bonus}</div>
-              <div className="border-t border-gray-300 pt-2">Total:</div>
-              <div className="text-right border-t border-gray-300 pt-2">{upperSectionTotal + bonus}</div>
+              <div className="text-right text-orange-600">{bonus}</div>
+              <div className="border-t border-amber-400 pt-2">Total:</div>
+              <div className="text-right border-t border-amber-400 pt-2">{upperSectionTotal + bonus}</div>
             </div>
             {pointsNeeded > 0 && (
-              <div className="mt-2 p-2 bg-blue-50 rounded-lg">
-                <div className="text-sm text-blue-700 text-center">
+              <div className="mt-2 p-2 bg-orange-100 rounded-lg border border-orange-200">
+                <div className="text-sm text-amber-800 text-center">
                   💡 <strong>Bonus Hint:</strong> Get 35 bonus points by scoring at least 63 points in the upper section!
                 </div>
               </div>
@@ -113,8 +113,8 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
         </div>
       </Card>
 
-      <Card className="p-6 bg-white/90 backdrop-blur-sm border-2 border-green-200">
-        <h3 className="text-xl font-bold mb-4 text-center text-gray-800">Lower Section</h3>
+      <Card className="p-6 bg-amber-50/90 backdrop-blur-sm border-2 border-orange-300 shadow-lg">
+        <h3 className="text-xl font-bold mb-4 text-center text-amber-900">Lower Section</h3>
         <div className="space-y-2">
           {specialCategories.map(category => (
             <ScoreRow key={category.key} category={category} />

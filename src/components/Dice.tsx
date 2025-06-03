@@ -31,11 +31,11 @@ const Dice: React.FC<DiceProps> = ({ value, locked, onClick, disabled, isRolling
         className={`
           w-24 h-24 cursor-pointer transition-all duration-300 transform hover:scale-105
           ${locked 
-            ? 'bg-gradient-to-br from-yellow-100 to-yellow-200 border-4 border-yellow-400 shadow-xl' 
-            : 'bg-gradient-to-br from-white to-gray-50 border-3 border-gray-300 hover:border-blue-400 shadow-lg'
+            ? 'bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-400 shadow-xl' 
+            : 'bg-gradient-to-br from-amber-50 to-orange-50 border-3 border-amber-400 hover:border-orange-500 shadow-lg'
           }
           ${disabled ? 'cursor-not-allowed opacity-50' : ''}
-          ${isRolling ? 'animate-pulse scale-110' : ''}
+          ${isRolling ? 'animate-bounce scale-110' : ''}
           relative select-none rounded-xl
         `}
         onClick={disabled ? undefined : onClick}
@@ -56,7 +56,7 @@ const Dice: React.FC<DiceProps> = ({ value, locked, onClick, disabled, isRolling
                 className={`
                   w-3 h-3 rounded-full transition-all duration-300
                   ${showDot 
-                    ? 'bg-gradient-to-br from-gray-700 to-gray-900 shadow-inner' 
+                    ? 'bg-gradient-to-br from-amber-800 to-amber-900 shadow-inner' 
                     : 'bg-transparent'
                   }
                 `}
@@ -66,14 +66,14 @@ const Dice: React.FC<DiceProps> = ({ value, locked, onClick, disabled, isRolling
         </div>
         
         {locked && (
-          <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+          <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
             🔒
           </div>
         )}
       </Card>
       
       {!disabled && (
-        <div className="text-xs text-center text-gray-600 bg-white/95 rounded-md py-1 px-2 font-medium shadow-sm border border-gray-200 mt-2 mb-4">
+        <div className="text-xs text-center text-amber-700 bg-amber-50/95 rounded-md py-1 px-2 font-medium shadow-sm border border-amber-300 mt-2 mb-4">
           {locked ? 'Locked' : 'Click to lock'}
         </div>
       )}

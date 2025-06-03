@@ -3,19 +3,19 @@ import KniffelGame from "@/components/KniffelGame";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-7xl font-didot font-bold text-gray-800 mb-4">
+          <h1 className="text-7xl font-didot font-bold text-amber-900 mb-4">
             🎲 Knoffels
           </h1>
         </div>
         <KniffelGame />
         
-        <div className="text-center mt-12 pt-8 border-t border-gray-200">
-          <p className="text-sm text-gray-500 font-medium">
+        <div className="text-center mt-12 pt-8 border-t border-amber-300">
+          <p className="text-sm text-amber-700 font-medium">
             Made with ❤️ by{" "}
-            <span className="text-blue-600 font-semibold">Mirza Polat</span>
+            <span className="text-amber-800 font-semibold">Mirza Polat</span>
           </p>
         </div>
       </div>
