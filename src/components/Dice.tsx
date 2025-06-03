@@ -33,11 +33,12 @@ const Dice: React.FC<DiceProps> = ({
   return <div className="flex flex-col items-center">
       <Card className={`
           w-24 h-24 cursor-pointer transition-all duration-300 transform hover:scale-105
-          ${locked ? 'bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-400 shadow-2xl drop-shadow-xl' : 'bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-orange-300 hover:border-orange-500 shadow-xl drop-shadow-lg'}
+          ${locked ? 'bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-400 shadow-2xl drop-shadow-xl' : 'bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-gray-300 hover:border-gray-400 shadow-xl drop-shadow-lg'}
           ${disabled ? 'cursor-not-allowed opacity-50' : ''}
           ${isRolling ? 'animate-bounce scale-110' : ''}
           relative select-none rounded-xl
         `} onClick={disabled ? undefined : onClick}>
+        
         <div className="absolute inset-3 grid grid-cols-3 grid-rows-3 gap-1 px-[10px] py-[10px]">
           {Array.from({
           length: 9
