@@ -35,16 +35,18 @@ const KniffelGame = () => {
     if (rollsLeft > 0 && !isRolling) {
       setIsRolling(true);
       
-      // Simulate rolling animation duration
+      // Immediately roll dice and add pop animation
+      setDice(prevDice => 
+        prevDice.map(die => 
+          die.locked ? die : { ...die, value: Math.floor(Math.random() * 6) + 1 }
+        )
+      );
+      setRollsLeft(prev => prev - 1);
+      
+      // Stop the rolling animation after a short duration
       setTimeout(() => {
-        setDice(prevDice => 
-          prevDice.map(die => 
-            die.locked ? die : { ...die, value: Math.floor(Math.random() * 6) + 1 }
-          )
-        );
-        setRollsLeft(prev => prev - 1);
         setIsRolling(false);
-      }, 600);
+      }, 300);
     }
   }, [rollsLeft, isRolling]);
 
