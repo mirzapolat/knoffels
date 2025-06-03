@@ -52,16 +52,20 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
 
     return (
       <div className={`
-        grid grid-cols-4 gap-4 p-3 rounded-lg transition-all duration-200
+        flex items-center justify-between p-3 rounded-lg transition-all duration-200
         ${isScored ? 'bg-orange-100 border border-orange-300' : 'bg-amber-50 hover:bg-orange-50'}
         ${canScoreThis ? 'border-2 border-amber-400 cursor-pointer' : ''}
       `}>
-        <div className="font-semibold text-amber-900">{category.label}</div>
-        <div className="text-sm text-amber-700">{category.description}</div>
-        <div className="text-center font-bold text-lg text-amber-800">
+        <div className="flex-1 min-w-0 mr-4">
+          <div className="font-semibold text-amber-900">{category.label}</div>
+          <div className="text-sm text-amber-700">{category.description}</div>
+        </div>
+        
+        <div className="text-center font-bold text-lg text-amber-800 min-w-[60px] mr-4">
           {isScored ? scores[category.key] : (canScore ? currentScore : '-')}
         </div>
-        <div className="flex justify-center">
+        
+        <div className="flex-shrink-0 min-w-[120px] flex justify-end">
           {canScoreThis && (
             <Button
               onClick={() => onScoreCategory(category.key)}
