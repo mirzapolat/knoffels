@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -105,7 +104,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
               <div className="text-right border-t border-amber-500/60 pt-2 text-lg md:text-xl">{upperSectionTotal + bonus}</div>
             </div>
             {pointsNeeded > 0 && (
-              <div className="mt-3 p-3 bg-yellow-100/80 rounded-lg border border-amber-300/40">
+              <div className="mt-6 p-3 bg-yellow-100/80 rounded-lg border border-amber-300/40 shadow-md">
                 <div className="text-xs md:text-sm text-amber-800 text-center">
                   💡 <strong>Bonus Hint:</strong> Get 35 bonus points by scoring at least 63 points in the upper section!
                 </div>
