@@ -1,73 +1,16 @@
-# Welcome to your Lovable project
+# Knoffels
 
-## Project info
+Knoffels is an engaging dice game inspired by the German game "Kniffel" (known as Yahtzee in English-speaking countries). In this digital adaptation, players roll five dice and strategically aim to achieve specific combinations over 13 rounds.
 
-**URL**: https://lovable.dev/projects/45c81823-af96-4029-bfa1-1e2d8fa5e339
+The game combines luck with tactical decision-making as players must choose which scoring category to fill after each roll. Players get up to three rolls per turn to achieve their desired combination. Categories include:
 
-## How can I edit this code?
+- Singles (Ones through Sixes)
+- Three of a Kind
+- Four of a Kind
+- Full House (Three of one number and two of another)
+- Small Straight (Four sequential numbers)
+- Large Straight (Five sequential numbers)
+- Knoffels/Yahtzee (Five of the same number)
+- Chance (Sum of all dice)
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/45c81823-af96-4029-bfa1-1e2d8fa5e339) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/45c81823-af96-4029-bfa1-1e2d8fa5e339) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+What makes Knoffels particularly exciting is the balance between risk and reward - should you settle for a lower score in a category, or push your luck with remaining rolls? The digital format adds convenience while maintaining the classic gameplay that has made this dice game a beloved pastime for generations.
