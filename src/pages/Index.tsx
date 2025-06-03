@@ -7,7 +7,7 @@ const Index = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <h1 className="text-7xl font-didot font-bold text-amber-900 mb-4">
-            🎲 Knoffels
+            Knoffels
           </h1>
         </div>
         <KniffelGame />
