@@ -52,29 +52,29 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
 
     return (
       <div className="flex items-stretch bg-yellow-50/80 border border-amber-300/50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-200">
-        <div className="flex-1 p-2 md:p-3">
-          <div className="font-semibold text-amber-900 text-sm md:text-lg">{category.label}</div>
-          <div className="text-xs md:text-sm text-amber-700 mt-1 hidden sm:block">{category.description}</div>
+        <div className="flex-1 p-3">
+          <div className="font-semibold text-amber-900 text-lg">{category.label}</div>
+          <div className="text-sm text-amber-700 mt-1">{category.description}</div>
         </div>
         
-        <div className="flex items-center justify-center bg-amber-100/50 border-l border-amber-300/30 px-2 md:px-4 min-w-[60px] md:min-w-[80px]">
-          <span className="font-bold text-lg md:text-xl text-amber-800">
+        <div className="flex items-center justify-center bg-amber-100/50 border-l border-amber-300/30 px-4 min-w-[80px]">
+          <span className="font-bold text-xl text-amber-800">
             {isScored ? scores[category.key] : '-'}
           </span>
         </div>
         
-        <div className="flex items-center justify-center bg-amber-200/30 border-l border-amber-300/30 min-w-[100px] md:min-w-[140px] px-2 md:px-3">
+        <div className="flex items-center justify-center bg-amber-200/30 border-l border-amber-300/30 min-w-[140px] px-3">
           {canScoreThis && (
             <Button
               onClick={() => onScoreCategory(category.key)}
               size="sm"
-              className="bg-amber-700 hover:bg-amber-800 text-yellow-50 font-bold px-2 md:px-4 py-1 md:py-2 rounded-md shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 text-xs md:text-sm"
+              className="bg-amber-700 hover:bg-amber-800 text-yellow-50 font-bold px-4 py-2 rounded-md shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105"
             >
-              <span className="hidden sm:inline">Score </span>{potentialScore}
+              Score {potentialScore}
             </Button>
           )}
           {isScored && (
-            <span className="text-amber-700 font-bold text-sm md:text-lg">✓</span>
+            <span className="text-amber-700 font-bold text-lg">✓ Scored</span>
           )}
         </div>
       </div>
@@ -82,31 +82,31 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-      <Card className="p-3 md:p-6 bg-yellow-50/90 backdrop-blur-sm border-2 border-amber-400/60 shadow-xl">
-        <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center text-amber-900 border-b-2 border-amber-400/40 pb-2 md:pb-3">Upper Section</h3>
-        <div className="space-y-2 md:space-y-3">
+    <div className="grid md:grid-cols-2 gap-6">
+      <Card className="p-6 bg-yellow-50/90 backdrop-blur-sm border-2 border-amber-400/60 shadow-xl">
+        <h3 className="text-2xl font-bold mb-6 text-center text-amber-900 border-b-2 border-amber-400/40 pb-3">Upper Section</h3>
+        <div className="space-y-3">
           {categories.map(category => (
             <ScoreRow key={category.key} category={category} />
           ))}
           
-          <div className="border-t-2 border-amber-500/60 pt-3 md:pt-4 mt-4 md:mt-6 bg-amber-100/40 rounded-lg p-3 md:p-4">
-            <div className="grid grid-cols-2 gap-2 md:gap-4 text-sm md:text-lg font-bold text-amber-900">
+          <div className="border-t-2 border-amber-500/60 pt-4 mt-6 bg-amber-100/40 rounded-lg p-4">
+            <div className="grid grid-cols-2 gap-4 text-lg font-bold text-amber-900">
               <div>Subtotal:</div>
               <div className="text-right">{upperSectionTotal}</div>
-              <div className="flex items-center gap-1 md:gap-2">
+              <div className="flex items-center gap-2">
                 Bonus:
-                <span className="text-xs md:text-sm font-normal text-amber-700">
+                <span className="text-sm font-normal text-amber-700">
                   {pointsNeeded > 0 ? `Need ${pointsNeeded} more` : '✓ Achieved!'}
                 </span>
               </div>
               <div className="text-right text-amber-800">{bonus}</div>
-              <div className="border-t border-amber-500/60 pt-2 text-lg md:text-xl">Total:</div>
-              <div className="text-right border-t border-amber-500/60 pt-2 text-lg md:text-xl">{upperSectionTotal + bonus}</div>
+              <div className="border-t border-amber-500/60 pt-2 text-xl">Total:</div>
+              <div className="text-right border-t border-amber-500/60 pt-2 text-xl">{upperSectionTotal + bonus}</div>
             </div>
             {pointsNeeded > 0 && (
-              <div className="mt-3 p-2 md:p-3 bg-yellow-100/80 rounded-lg border border-amber-300/40">
-                <div className="text-xs md:text-sm text-amber-800 text-center">
+              <div className="mt-3 p-3 bg-yellow-100/80 rounded-lg border border-amber-300/40">
+                <div className="text-sm text-amber-800 text-center">
                   💡 <strong>Bonus Hint:</strong> Get 35 bonus points by scoring at least 63 points in the upper section!
                 </div>
               </div>
@@ -115,9 +115,9 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
         </div>
       </Card>
 
-      <Card className="p-3 md:p-6 bg-yellow-50/90 backdrop-blur-sm border-2 border-amber-400/60 shadow-xl">
-        <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center text-amber-900 border-b-2 border-amber-400/40 pb-2 md:pb-3">Lower Section</h3>
-        <div className="space-y-2 md:space-y-3">
+      <Card className="p-6 bg-yellow-50/90 backdrop-blur-sm border-2 border-amber-400/60 shadow-xl">
+        <h3 className="text-2xl font-bold mb-6 text-center text-amber-900 border-b-2 border-amber-400/40 pb-3">Lower Section</h3>
+        <div className="space-y-3">
           {specialCategories.map(category => (
             <ScoreRow key={category.key} category={category} />
           ))}
