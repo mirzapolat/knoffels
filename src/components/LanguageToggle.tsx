@@ -1,13 +1,13 @@
 
 import React from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const LanguageToggle = () => {
-  const [language, setLanguage] = React.useState('en');
+  const { language, setLanguage } = useLanguage();
 
   const handleLanguageChange = (value: string) => {
-    setLanguage(value);
-    // You can add language switching logic here later
+    setLanguage(value as 'en' | 'de');
     console.log('Language changed to:', value);
   };
 
