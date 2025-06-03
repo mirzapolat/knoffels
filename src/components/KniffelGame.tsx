@@ -14,19 +14,19 @@ export interface Score {
 }
 const KniffelGame = () => {
   const [dice, setDice] = useState<DiceState[]>([{
-    value: 1,
+    value: 5,
     locked: false
   }, {
-    value: 1,
+    value: 5,
     locked: false
   }, {
-    value: 1,
+    value: 5,
     locked: false
   }, {
-    value: 1,
+    value: 5,
     locked: false
   }, {
-    value: 1,
+    value: 5,
     locked: false
   }]);
   const [rollsLeft, setRollsLeft] = useState(3);
@@ -130,7 +130,7 @@ const KniffelGame = () => {
 
     // Reset for next turn
     setDice(dice.map(() => ({
-      value: 1,
+      value: 5,
       locked: false
     })));
     setRollsLeft(3);
@@ -160,19 +160,19 @@ const KniffelGame = () => {
   }, [dice, scores, rollsLeft, calculateScore, upperSectionCategories, toast]);
   const newGame = useCallback(() => {
     setDice([{
-      value: 1,
+      value: 5,
       locked: false
     }, {
-      value: 1,
+      value: 5,
       locked: false
     }, {
-      value: 1,
+      value: 5,
       locked: false
     }, {
-      value: 1,
+      value: 5,
       locked: false
     }, {
-      value: 1,
+      value: 5,
       locked: false
     }]);
     setRollsLeft(3);
