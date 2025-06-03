@@ -195,7 +195,7 @@ const KniffelGame = () => {
               {isRolling ? 'Rolling...' : rollsLeft === 3 ? 'Start Rolling!' : `Roll Dice (${rollsLeft} left)`}
             </Button>
             
-            <Button onClick={newGame} variant="outline" size="lg" className="border-2 border-amber-600 text-amber-700 hover:bg-amber-100 font-bold px-8 py-3 rounded-lg transition-all duration-200 shadow-lg">
+            <Button onClick={newGame} variant="outline" size="lg" className="border-2 border-amber-600 text-amber-700 hover:bg-amber-100 font-bold py-3 rounded-lg transition-all duration-200 shadow-lg px-[15px]">
               New Game
             </Button>
           </div>
