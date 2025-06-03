@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
+
 interface DiceProps {
   value: number;
   locked: boolean;
@@ -8,6 +8,7 @@ interface DiceProps {
   disabled: boolean;
   isRolling?: boolean;
 }
+
 const Dice: React.FC<DiceProps> = ({
   value,
   locked,
@@ -26,11 +27,13 @@ const Dice: React.FC<DiceProps> = ({
     };
     return positions[value as keyof typeof positions] || [];
   };
+
   const dotPositions = getDotPositions(value);
+
   return <div className="flex flex-col items-center">
       <Card className={`
           w-24 h-24 cursor-pointer transition-all duration-300 transform hover:scale-105
-          ${locked ? 'bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-400 shadow-2xl drop-shadow-xl' : 'bg-gradient-to-br from-amber-50 to-orange-50 border-3 border-orange-300 hover:border-orange-500 shadow-xl drop-shadow-lg'}
+          ${locked ? 'bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-400 shadow-2xl drop-shadow-xl' : 'bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-orange-300 hover:border-orange-500 shadow-xl drop-shadow-lg'}
           ${disabled ? 'cursor-not-allowed opacity-50' : ''}
           ${isRolling ? 'animate-bounce scale-110' : ''}
           relative select-none rounded-xl
@@ -59,4 +62,5 @@ const Dice: React.FC<DiceProps> = ({
         </div>}
     </div>;
 };
+
 export default Dice;
