@@ -31,8 +31,8 @@ const Dice: React.FC<DiceProps> = ({ value, locked, onClick, disabled, isRolling
         className={`
           w-24 h-24 cursor-pointer transition-all duration-300 transform hover:scale-105
           ${locked 
-            ? 'bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-400 shadow-xl' 
-            : 'bg-gradient-to-br from-amber-50 to-orange-50 border-3 border-amber-400 hover:border-orange-500 shadow-lg'
+            ? 'bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-400 shadow-2xl drop-shadow-xl' 
+            : 'bg-gradient-to-br from-amber-50 to-orange-50 border-3 border-amber-400 hover:border-orange-500 shadow-xl drop-shadow-lg'
           }
           ${disabled ? 'cursor-not-allowed opacity-50' : ''}
           ${isRolling ? 'animate-bounce scale-110' : ''}
@@ -56,7 +56,7 @@ const Dice: React.FC<DiceProps> = ({ value, locked, onClick, disabled, isRolling
                 className={`
                   w-3 h-3 rounded-full transition-all duration-300
                   ${showDot 
-                    ? 'bg-gradient-to-br from-amber-800 to-amber-900 shadow-inner' 
+                    ? 'bg-gradient-to-br from-amber-800 to-amber-900 shadow-lg drop-shadow-md' 
                     : 'bg-transparent'
                   }
                 `}
@@ -66,14 +66,14 @@ const Dice: React.FC<DiceProps> = ({ value, locked, onClick, disabled, isRolling
         </div>
         
         {locked && (
-          <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+          <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-2xl drop-shadow-lg">
             🔒
           </div>
         )}
       </Card>
       
       {!disabled && (
-        <div className="text-xs text-center text-amber-700 bg-amber-50/95 rounded-md py-1 px-2 font-medium shadow-sm border border-amber-300 mt-2 mb-4">
+        <div className="text-xs text-center text-amber-700 bg-amber-50/95 rounded-md py-1 px-2 font-medium shadow-lg border border-amber-300 mt-2 mb-4">
           {locked ? 'Locked' : 'Click to lock'}
         </div>
       )}
