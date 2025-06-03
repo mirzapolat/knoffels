@@ -52,29 +52,27 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
 
     return (
       <div className={`
-        grid grid-cols-[1fr_auto_auto_auto] gap-2 p-3 rounded-lg transition-all duration-200 items-center
+        grid grid-cols-4 gap-4 p-3 rounded-lg transition-all duration-200
         ${isScored ? 'bg-orange-100 border border-orange-300' : 'bg-amber-50 hover:bg-orange-50'}
         ${canScoreThis ? 'border-2 border-amber-400 cursor-pointer' : ''}
       `}>
-        <div className="min-w-0">
-          <div className="font-semibold text-amber-900">{category.label}</div>
-          <div className="text-sm text-amber-700 truncate">{category.description}</div>
-        </div>
-        <div className="text-center font-bold text-lg text-amber-800 min-w-[3rem]">
+        <div className="font-semibold text-amber-900">{category.label}</div>
+        <div className="text-sm text-amber-700">{category.description}</div>
+        <div className="text-center font-bold text-lg text-amber-800">
           {isScored ? scores[category.key] : (canScore ? currentScore : '-')}
         </div>
-        <div className="flex justify-center min-w-[120px]">
+        <div className="flex justify-center">
           {canScoreThis && (
             <Button
               onClick={() => onScoreCategory(category.key)}
               size="sm"
-              className="bg-amber-600 hover:bg-amber-700 text-amber-50 px-3 py-1 rounded transition-all duration-200 shadow text-xs whitespace-nowrap"
+              className="bg-amber-600 hover:bg-amber-700 text-amber-50 px-4 py-1 rounded transition-all duration-200 shadow"
             >
               Score {currentScore}
             </Button>
           )}
           {isScored && (
-            <span className="text-orange-600 font-bold text-sm">✓ Scored</span>
+            <span className="text-orange-600 font-bold">✓ Scored</span>
           )}
         </div>
       </div>
