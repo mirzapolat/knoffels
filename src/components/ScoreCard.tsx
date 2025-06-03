@@ -47,7 +47,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
 
   const ScoreRow = ({ category }: { category: any }) => {
     const isScored = scores[category.key] !== undefined;
-    const currentScore = isScored ? scores[category.key] : calculateScore(category.key, diceValues);
+    const potentialScore = calculateScore(category.key, diceValues);
     const canScoreThis = canScore && !isScored;
 
     return (
@@ -59,7 +59,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
         
         <div className="flex items-center justify-center bg-amber-100/50 border-l border-amber-300/30 px-4 min-w-[80px]">
           <span className="font-bold text-xl text-amber-800">
-            {isScored ? scores[category.key] : (canScore ? currentScore : '-')}
+            {isScored ? scores[category.key] : '-'}
           </span>
         </div>
         
@@ -70,7 +70,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({
               size="sm"
               className="bg-amber-700 hover:bg-amber-800 text-yellow-50 font-bold px-4 py-2 rounded-md shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105"
             >
-              Score {currentScore}
+              Score {potentialScore}
             </Button>
           )}
           {isScored && (
