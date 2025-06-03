@@ -6,8 +6,8 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-7xl font-didot font-bold text-amber-900 mb-4">
-            Knoffels
+          <h1 className="text-7xl font-didot font-light text-amber-900 mb-4">
+            KNOFFELS
           </h1>
         </div>
         <KniffelGame />
