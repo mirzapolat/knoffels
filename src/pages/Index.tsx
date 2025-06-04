@@ -10,12 +10,13 @@ const Index = () => {
             Knoffels
           </h1>
         </div>
+
         <KniffelGame />
-        
+
         <div className="text-center mt-12 pt-8 border-t border-amber-300">
           <p className="text-sm text-amber-700 font-medium">
             Made with ❤️ by{" "}
-            <span className="text-amber-800 font-semibold">Mirza Polat</span>
+            <span className="text-amber-800 font-bold"><a href="https://mirzapolat.com" target="_blank" rel="noopener noreferrer">Mirza Polat</a></span>
           </p>
         </div>
       </div>
