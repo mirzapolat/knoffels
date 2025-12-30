@@ -1,0 +1,1 @@
+docker build -t knoffels:latest -f Dockerfile .
