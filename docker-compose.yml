@@ -1,0 +1,27 @@
+# knoffels — single self-hosted container serving the static SPA.
+# Fronted by an external Traefik instance (TLS + routing managed outside this project).
+#
+#   docker compose up --build -d
+
+services:
+  knoffels:
+    build:
+      context: .
+    image: knoffels
+    expose:
+      - "3000"
+    networks:
+      - home
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.knoffels.rule: "Host(`knoffels.mirzapolat.com`)"
+      traefik.http.routers.knoffels.entrypoints: websecure
+      traefik.http.routers.knoffels.tls.certresolver: letsencrypt
+      traefik.http.routers.knoffels.middlewares: secure-headers@file,compress@file
+      traefik.http.services.knoffels.loadbalancer.server.port: "3000"
+    restart: unless-stopped
+
+# Joins the existing Traefik network (created/managed outside this project).
+networks:
+  home:
+    external: true

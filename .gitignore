@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 docker-compose.yaml
+
+# Secrets — the real .env lives on the VPS at ~/docker/apps/knoffels/.env
+.env
+.env.*
